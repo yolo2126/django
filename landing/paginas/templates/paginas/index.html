@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tacos Intergalácticos 🌮🚀</title>
+<style>
+  :root{
+    --bg:#1a1033;
+    --card:#241a44;
+    --card2:#2c2052;
+    --orange:#FF6B35;
+    --pink:#E94CA6;
+    --yellow:#FFD166;
+    --text:#F4EFFB;
+    --text-soft:#B9A9E0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:system-ui,sans-serif;
+    background:radial-gradient(circle at 20% 10%, #2d1f55, var(--bg) 60%);
+    color:var(--text);
+    overflow-x:hidden;
+  }
+  .stars{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, white, transparent),
+      radial-gradient(2px 2px at 120px 80px, white, transparent),
+      radial-gradient(1px 1px at 200px 150px, white, transparent),
+      radial-gradient(1px 1px at 300px 50px, white, transparent),
+      radial-gradient(2px 2px at 400px 200px, white, transparent),
+      radial-gradient(1px 1px at 500px 120px, white, transparent);
+    background-repeat:repeat;
+    background-size:420px 220px;
+    opacity:0.5;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:24px 0;
+  }
+  .logo{font-weight:800;font-size:1.2rem;display:flex;align-items:center;gap:8px;}
+  nav a{color:var(--text-soft);text-decoration:none;margin-left:24px;font-size:0.92rem;}
+  nav a:hover{color:var(--yellow);}
+
+  .hero{
+    text-align:center;padding:60px 0 80px;
+  }
+  .emoji-float{
+    font-size:3.4rem;margin-bottom:10px;display:inline-block;
+    animation:float 4s ease-in-out infinite;
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(-3deg);}
+    50%{transform:translateY(-14px) rotate(3deg);}
+  }
+  .badge{
+    display:inline-block;
+    background:linear-gradient(135deg,var(--orange),var(--pink));
+    color:#fff;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;
+    text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:20px;
+  }
+  h1{font-size:2.6rem;margin-bottom:16px;letter-spacing:-0.02em;}
+  h1 span{
+    background:linear-gradient(135deg,var(--orange),var(--yellow));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p{color:var(--text-soft);max-width:480px;margin:0 auto 30px;line-height:1.6;}
+  .btn{
+    display:inline-block;background:linear-gradient(135deg,var(--orange),var(--pink));
+    color:#fff;padding:14px 32px;border-radius:30px;text-decoration:none;
+    font-weight:600;transition:transform .2s;
+  }
+  .btn:hover{transform:translateY(-3px);}
+
+  .section{padding:50px 0;}
+  .section h2{font-size:1.7rem;margin-bottom:8px;text-align:center;}
+  .section .sub{color:var(--text-soft);text-align:center;margin-bottom:36px;}
+
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .menu-card{
+    background:var(--card);border-radius:18px;padding:26px 20px;text-align:center;
+    border:1px solid rgba(255,255,255,0.06);
+    transition:transform .25s, background .25s;
+  }
+  .menu-card:hover{transform:translateY(-6px);background:var(--card2);}
+  .menu-card .icon{font-size:2.2rem;margin-bottom:12px;}
+  .menu-card h3{font-size:1.05rem;margin-bottom:6px;}
+  .menu-card p{color:var(--text-soft);font-size:0.85rem;margin-bottom:12px;}
+  .menu-card .price{color:var(--yellow);font-weight:700;}
+
+  .nosotros{
+    background:var(--card);border-radius:24px;padding:40px 36px;
+    display:flex;align-items:center;gap:30px;flex-wrap:wrap;
+  }
+  .nosotros .icon-big{font-size:3.4rem;}
+  .nosotros h2{text-align:left;margin-bottom:10px;}
+  .nosotros p{color:var(--text-soft);line-height:1.6;}
+
+  footer{
+    text-align:center;padding:50px 0 30px;color:var(--text-soft);font-size:0.85rem;
+    border-top:1px solid rgba(255,255,255,0.08);margin-top:30px;
+  }
+
+  @media (max-width:680px){
+    .menu-grid{grid-template-columns:1fr;}
+    h1{font-size:2rem;}
+    nav a{margin-left:14px;font-size:0.85rem;}
+    .nosotros{flex-direction:column;text-align:center;}
+    .nosotros h2{text-align:center;}
+  }
+</style>
+</head>
+<body>
+<div class="stars"></div>
+
+<div class="wrap">
+
+  <nav>
+    <span class="logo">🌮 Tacos Intergalácticos</span>
+    <div>
+      <a href="#menu">Menú</a>
+      <a href="#nosotros">Nosotros</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="emoji-float">🛰️</div>
+    <span class="badge">Recién aterrizados</span>
+    <h1>Sabor de <span>otro planeta</span></h1>
+    <p>Tacos hechos con maíz cultivado en gravedad cero, entregados en menos de 3 años luz directo a tu puerta (o tu nave).</p>
+    <a class="btn" href="#menu">Ver el menú cósmico</a>
+  </section>
+
+  <section class="section" id="menu">
+    <h2>Menú cósmico</h2>
+    <p class="sub">Elegidos por los mejores chefs de la Vía Láctea</p>
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <div class="icon">🌮</div>
+        <h3>Taco Nebulosa</h3>
+        <p>Carne asada con polvo de estrellas (orégano, en realidad).</p>
+        <span class="price">$45 créditos galácticos</span>
+      </div>
+
+      <div class="menu-card">
+        <div class="icon">🌶️</div>
+        <h3>Taco Marte Picoso</h3>
+        <p>Para los valientes. Salsa roja nivel "alerta planetaria".</p>
+        <span class="price">$50 créditos galácticos</span>
+      </div>
+
+      <div class="menu-card">
+        <div class="icon">🧀</div>
+        <h3>Taco Vía Láctea</h3>
+        <p>Doble queso fundido, porque la galaxia también es cremosa.</p>
+        <span class="price">$48 créditos galácticos</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="nosotros">
+    <div class="nosotros">
+      <div class="icon-big">👽</div>
+      <div>
+        <h2>¿Quiénes somos?</h2>
+        <p>Somos una taquería interdimensional que aterrizó por accidente (y se quedó porque le gustó la salsa verde). Servimos tacos a viajeros de cualquier galaxia, sin importar cuántas extremidades tengan.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Tacos Intergalácticos — Hecho con Django 🐍
+  </footer>
+
+</div>
+
+</body>
+</html>
